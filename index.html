@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>相続支援窓口｜ワンストップで相続の全手続きをサポート</title>
+  <title>相続支援窓口｜相続・登記・税務・不動産をワンストップでサポート</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -12,856 +12,269 @@
       --navy-dark: #0f1a3e;
       --gold: #c9a84c;
       --gold-light: #e8c96a;
-      --beige: #f8f4ee;
-      --beige-dark: #f0e9df;
-      --text: #333333;
-      --text-light: #666666;
-      --white: #ffffff;
+      --white: #fff;
     }
 
     body {
       font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif;
-      color: var(--text);
-      line-height: 1.8;
-      background: var(--white);
+      background: #f5f5f5;
+      color: #333;
     }
-
-    a { text-decoration: none; color: inherit; }
 
     /* ===== HEADER ===== */
     header {
-      background: var(--navy);
-      padding: 12px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
-    }
-    header .logo {
-      color: var(--white);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    header .logo span { color: var(--gold); }
-    header .tel-header {
-      color: var(--white);
-      font-size: 14px;
-    }
-    header .tel-header strong {
-      font-size: 20px;
-      color: var(--gold-light);
-      margin-left: 6px;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #2a3f7e 100%);
-      padding: 80px 24px 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-label {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      letter-spacing: 0.08em;
-    }
-    .hero h1 {
-      color: var(--white);
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold-light);
-    }
-    .hero p.hero-sub {
-      color: rgba(255,255,255,0.85);
-      font-size: clamp(15px, 2vw, 18px);
-      margin-bottom: 40px;
-    }
-    .btn-cta {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: 18px;
-      font-weight: 900;
-      padding: 18px 48px;
-      border-radius: 50px;
-      letter-spacing: 0.05em;
-      box-shadow: 0 6px 24px rgba(201,168,76,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(201,168,76,0.5);
-    }
-    .btn-cta small {
-      display: block;
-      font-size: 12px;
-      font-weight: 400;
-      margin-top: 4px;
-    }
-    .hero-badges {
-      margin-top: 32px;
+      background: var(--navy);
+      padding: 10px 20px;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     }
-    .hero-badge {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
+    .logo {
       color: var(--white);
-      font-size: 13px;
-      padding: 8px 20px;
-      border-radius: 6px;
-    }
-
-    /* ===== WORRY ===== */
-    .worry {
-      background: var(--beige);
-      padding: 72px 24px;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .section-title h2 {
-      font-size: clamp(22px, 3.5vw, 32px);
-      color: var(--navy);
-      font-weight: 900;
-      line-height: 1.4;
-    }
-    .section-title h2 span {
-      color: var(--gold);
-    }
-    .section-title .subtitle {
-      color: var(--text-light);
-      font-size: 15px;
-      margin-top: 10px;
-    }
-    .worry-list {
-      max-width: 720px;
-      margin: 0 auto;
-      display: grid;
-      gap: 14px;
-    }
-    .worry-item {
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      padding: 18px 24px;
-      border-radius: 0 8px 8px 0;
       font-size: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-weight: 900;
+    }
+    .logo em { font-style: normal; color: var(--gold-light); }
+    .header-cta a {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-size: 15px;
+      font-weight: 900;
+      padding: 8px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      white-space: nowrap;
     }
-    .worry-item::before {
-      content: '💬';
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .worry-cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .worry-cta p {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .worry-cta p em {
-      font-style: normal;
-      color: var(--gold);
-    }
+    .header-cta a span { font-size: 12px; font-weight: 400; }
 
-    /* ===== ABOUT ===== */
-    .about {
-      background: var(--white);
-      padding: 72px 24px;
-    }
-    .about-inner {
+    /* ===== MAIN ===== */
+    .lp-wrap {
       max-width: 800px;
       margin: 0 auto;
-      text-align: center;
-    }
-    .about h2 {
-      font-size: clamp(20px, 3vw, 28px);
-      color: var(--navy);
-      font-weight: 900;
-      line-height: 1.5;
-      margin-bottom: 24px;
-    }
-    .about h2 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .about p {
-      font-size: 16px;
-      color: var(--text-light);
-      margin-bottom: 40px;
-      line-height: 2;
-    }
-    .about-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      .about-points { grid-template-columns: 1fr; }
-    }
-    .about-point {
-      background: var(--beige);
-      border-radius: 12px;
-      padding: 28px 16px;
-    }
-    .about-point .icon {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-    .about-point h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .about-point p {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-bottom: 0;
-    }
-
-    /* ===== SERVICES ===== */
-    .services {
-      background: var(--navy);
-      padding: 72px 24px;
-    }
-    .services .section-title h2 { color: var(--white); }
-    .services .section-title .subtitle { color: rgba(255,255,255,0.65); }
-    .services-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-    .service-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 32px 28px;
-    }
-    .service-card .role-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 14px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
-    .service-card .expert-name {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--white);
-      margin-bottom: 4px;
-      letter-spacing: 0.05em;
-    }
-    .service-card .firm-name {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 16px;
-    }
-    .service-card ul {
-      list-style: none;
-      padding: 0;
-    }
-    .service-card ul li {
-      font-size: 14px;
-      color: rgba(255,255,255,0.85);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-left: 20px;
-      position: relative;
-    }
-    .service-card ul li:last-child { border-bottom: none; }
-    .service-card ul li::before {
-      content: '▸';
-      color: var(--gold);
-      position: absolute;
-      left: 0;
-    }
-
-    /* ===== FLOW ===== */
-    .flow {
-      background: var(--beige);
-      padding: 72px 24px;
-    }
-    .flow-steps {
-      max-width: 720px;
-      margin: 0 auto;
-      display: grid;
-      gap: 0;
-    }
-    .flow-step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      position: relative;
-    }
-    .flow-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 28px;
-      top: 56px;
-      bottom: -28px;
-      width: 2px;
-      background: var(--gold);
-    }
-    .step-number {
-      width: 56px;
-      height: 56px;
-      background: var(--navy);
-      color: var(--gold-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 900;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .step-body {
       background: var(--white);
-      border-radius: 12px;
-      padding: 20px 24px;
-      flex: 1;
-      margin-bottom: 28px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .step-body h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .step-body p {
-      font-size: 14px;
-      color: var(--text-light);
     }
 
-    /* ===== REASONS ===== */
-    .reasons {
-      background: var(--white);
-      padding: 72px 24px;
+    /* ===== IMAGES ===== */
+    .lp-img {
+      display: block;
+      width: 100%;
+      line-height: 0;
     }
-    .reasons-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .lp-img img {
+      width: 100%;
+      display: block;
     }
-    @media (max-width: 600px) {
-      .reasons-grid { grid-template-columns: 1fr; }
-    }
-    .reason-card {
-      border: 2px solid var(--beige-dark);
-      border-radius: 16px;
+
+    /* ===== CTA BANNER（画像間・最下部） ===== */
+    .cta-banner {
+      background: var(--navy);
       padding: 32px 24px;
       text-align: center;
-      position: relative;
     }
-    .reason-num {
-      position: absolute;
-      top: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: 13px;
-      font-weight: 900;
-      padding: 4px 18px;
-      border-radius: 20px;
-      letter-spacing: 0.08em;
-    }
-    .reason-card .icon {
-      font-size: 40px;
-      margin: 12px 0 16px;
-    }
-    .reason-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .reason-card p {
-      font-size: 14px;
-      color: var(--text-light);
-    }
-
-    /* ===== FAQ ===== */
-    .faq {
-      background: var(--beige);
-      padding: 72px 24px;
-    }
-    .faq-list {
-      max-width: 720px;
-      margin: 0 auto;
-      display: grid;
-      gap: 16px;
-    }
-    .faq-item {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .faq-q {
-      padding: 20px 24px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .faq-q .q-label {
-      background: var(--navy);
-      color: var(--gold-light);
-      font-size: 16px;
-      font-weight: 900;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .faq-q .q-text {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      padding-top: 4px;
-    }
-    .faq-a {
-      padding: 0 24px 20px 70px;
-      font-size: 14px;
-      color: var(--text-light);
-      line-height: 1.9;
-    }
-
-    /* ===== CTA ===== */
-    .cta-section {
-      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
-      padding: 80px 24px;
-      text-align: center;
-    }
-    .cta-section h2 {
+    .cta-banner h2 {
       color: var(--white);
-      font-size: clamp(22px, 4vw, 36px);
+      font-size: clamp(18px, 4vw, 26px);
       font-weight: 900;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
-    .cta-section h2 em {
+    .cta-banner h2 em {
       font-style: normal;
       color: var(--gold-light);
     }
-    .cta-section p {
-      color: rgba(255,255,255,0.75);
-      font-size: 15px;
-      margin-bottom: 40px;
-    }
-    .cta-box {
-      background: var(--white);
-      max-width: 640px;
-      margin: 0 auto;
-      border-radius: 20px;
-      padding: 40px 36px;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
-    }
-    .cta-tel {
+    .cta-banner p {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
       margin-bottom: 24px;
     }
-    .cta-tel .label {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-bottom: 4px;
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    .cta-tel .number {
-      font-size: clamp(28px, 6vw, 40px);
+    .btn-tel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(201,168,76,.45);
+      transition: transform .15s;
+      min-width: 220px;
+    }
+    .btn-tel:hover { transform: translateY(-2px); }
+    .btn-tel .tel-label { font-size: 12px; font-weight: 400; }
+    .btn-tel .tel-num { font-size: 22px; letter-spacing: .06em; }
+    .btn-tel .tel-hours { font-size: 11px; font-weight: 400; opacity: .8; }
+    .btn-mail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1.5px solid rgba(255,255,255,.3);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .15s;
+      min-width: 220px;
+      justify-content: center;
+    }
+    .btn-mail:hover { background: rgba(255,255,255,.2); }
+
+    /* ===== FOOTER CTA ===== */
+    .footer-cta {
+      background: linear-gradient(135deg, var(--navy-dark), #1e3478);
+      padding: 48px 24px;
+    }
+    .footer-cta .inner {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.28);
+      text-align: center;
+    }
+    .footer-cta h2 {
+      font-size: clamp(18px, 3.5vw, 24px);
       font-weight: 900;
       color: var(--navy);
-      letter-spacing: 0.05em;
+      margin-bottom: 24px;
     }
-    .cta-tel .number::before { content: '📞 '; }
-    .cta-tel .hours {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-top: 4px;
+    .footer-cta h2 em {
+      font-style: normal;
+      color: var(--gold);
     }
-    .cta-divider {
-      border: none;
-      border-top: 1px solid var(--beige-dark);
-      margin: 20px 0;
-    }
-    .cta-mail {
-      font-size: 15px;
-      color: var(--navy);
+    .contact-tel {
       margin-bottom: 20px;
     }
-    .cta-mail strong { color: var(--gold); }
-    .btn-mail {
+    .contact-tel .label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    .contact-tel a {
+      display: block;
+      font-size: clamp(28px, 6vw, 38px);
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .06em;
+      text-decoration: none;
+    }
+    .contact-tel a:before { content: '📞 '; }
+    .contact-tel .hours {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 20px 0;
+    }
+    .contact-mail {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .contact-mail strong {
+      display: block;
+      font-size: 15px;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+    .contact-mail a {
       display: inline-block;
+      margin-top: 12px;
       background: var(--navy);
       color: var(--white);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 16px 44px;
+      padding: 12px 36px;
       border-radius: 50px;
-      letter-spacing: 0.05em;
-      transition: background 0.2s;
+      text-decoration: none;
+      transition: background .15s;
     }
-    .btn-mail:hover { background: var(--navy-dark); }
+    .contact-mail a:hover { background: var(--navy-dark); }
+    .contact-address {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+    }
 
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy-dark);
-      padding: 32px 24px;
+      padding: 20px;
       text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
     }
-    footer p {
-      color: rgba(255,255,255,0.45);
-      font-size: 13px;
-    }
-    footer .address {
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    /* ===== UTILITY ===== */
-    .container { max-width: 1000px; margin: 0 auto; }
   </style>
 </head>
 <body>
 
-<!-- ヘッダー -->
+<!-- ヘッダー（固定） -->
 <header>
-  <div class="logo"><span>相続</span>支援窓口</div>
-  <div class="tel-header">
-    無料相談 <strong>080-8162-9797</strong>
-  </div>
+  <div class="logo"><em>相続</em>支援窓口</div>
 </header>
 
-<!-- ヒーロー -->
-<section class="hero">
-  <div class="hero-label">相続のワンストップ専門家チーム</div>
-  <h1>
-    相続のこと、<br>
-    <em>全部ここで相談できます。</em>
-  </h1>
-  <p class="hero-sub">
-    弁護士・司法書士・税理士・不動産専門家が<br>
-    チームで連携し、相続のすべてをサポートします。
-  </p>
-  <a href="tel:0808162-9797" class="btn-cta">
-    まずは無料でご相談ください
-    <small>📞 080-8162-9797（受付 9:00〜18:00 平日）</small>
-  </a>
-  <div class="hero-badges">
-    <div class="hero-badge">✅ 初回相談無料</div>
-    <div class="hero-badge">✅ 4分野をワンストップで対応</div>
-    <div class="hero-badge">✅ 福岡市中央区</div>
-  </div>
-</section>
+<div class="lp-wrap">
 
-<!-- お悩み -->
-<section class="worry">
-  <div class="container">
-    <div class="section-title">
-      <h2>こんなお悩み、<span>ありませんか？</span></h2>
-      <p class="subtitle">相続は、突然やってきます。何から始めたらいいか、わからなくて当然です。</p>
-    </div>
-    <div class="worry-list">
-      <div class="worry-item">どこに相談すればいいかわからない</div>
-      <div class="worry-item">手続きが多すぎて、何から始めたらいいか…</div>
-      <div class="worry-item">相続税がかかるのか、かからないのかわからない</div>
-      <div class="worry-item">実家（空き家）の処分をどうすればいいか</div>
-      <div class="worry-item">専門家に頼むとお金がかかりそうで不安</div>
-      <div class="worry-item">手続きに何度も足を運ぶ時間がない</div>
-    </div>
-    <div class="worry-cta">
-      <p>そのお悩み、<em>私たちにまとめてお任せください。</em></p>
-    </div>
+  <!-- 画像① サービス概要 -->
+  <div class="lp-img">
+    <img src="S__473309187.jpg" alt="葬儀前から葬儀後まで、ご家族様に寄り添う提携プラン">
   </div>
-</section>
 
-<!-- 概要 -->
-<section class="about">
-  <div class="container">
-    <div class="about-inner">
-      <h2>
-        1か所で全部解決できる<br>
-        <em>「相続のワンストップ窓口」</em> です
-      </h2>
-      <p>
-        相続の手続きは、弁護士・司法書士・税理士・不動産専門家など<br>
-        複数の専門家が関わります。通常はご自身でそれぞれに相談する必要がありますが、<br>
-        私たちは4分野のプロがチームとして連携。<br>
-        窓口はひとつで、最初から最後まで一貫してサポートします。
-      </p>
-      <div class="about-points">
-        <div class="about-point">
-          <div class="icon">🤝</div>
-          <h3>ワンストップ対応</h3>
-          <p>複数の専門家を個別に探す手間なし</p>
-        </div>
-        <div class="about-point">
-          <div class="icon">🔗</div>
-          <h3>チームで連携</h3>
-          <p>分野をまたぐ複雑な問題も抜け漏れなく</p>
-        </div>
-        <div class="about-point">
-          <div class="icon">📍</div>
-          <h3>地域密着</h3>
-          <p>福岡市中央区で対面相談が可能</p>
-        </div>
+  <!-- 画像② 相談体制・フロー -->
+  <div class="lp-img">
+    <img src="S__473309188.jpg" alt="葬儀前から葬儀後まで、いつでも相談できる体制">
+  </div>
+
+  <!-- 画像③ 専門家紹介 -->
+  <div class="lp-img">
+    <img src="S__473309189.jpg" alt="相続支援窓口 専門家チーム紹介">
+  </div>
+
+  <!-- 最終CTA -->
+  <div class="footer-cta">
+    <div class="inner">
+      <h2>相続のことは、<em>まずここに<br>ご相談ください。</em></h2>
+      <div class="contact-tel">
+        <div class="label">お電話でのご相談（初回無料）</div>
+        <a href="tel:0808162-9797">080-8162-9797</a>
+        <div class="hours">受付時間：9:00〜18:00（平日）</div>
+      </div>
+      <hr class="divider">
+      <div class="contact-mail">
+        メールでのお問い合わせ
+        <strong>matsumoto@marue-state.com</strong>
+        <a href="mailto:matsumoto@marue-state.com">メールで問い合わせる</a>
+      </div>
+      <div class="contact-address">
+        〒810-0041 福岡県福岡市中央区大名1-1-1
       </div>
     </div>
   </div>
-</section>
 
-<!-- 専門家紹介 -->
-<section class="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>4つの専門分野を<span>チームで担当</span></h2>
-      <p class="subtitle">各分野の専門家が密接に連携し、あらゆる相続のお悩みに対応します</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="role-badge">⚖️ 弁護士</div>
-        <div class="expert-name">柳田 駿</div>
-        <div class="firm-name">弁続士法人レクシード</div>
-        <ul>
-          <li>相続問題・遺産分割のサポート</li>
-          <li>相続放棄の手続き</li>
-          <li>遺言書の作成</li>
-          <li>相続に関する法的課題の解決</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="role-badge">📋 司法書士</div>
-        <div class="expert-name">丸山 信幸</div>
-        <div class="firm-name">丸山法務総合事務所</div>
-        <ul>
-          <li>相続登記（不動産の名義変更）</li>
-          <li>預貯金等の名義変更手続き</li>
-          <li>各種相続手続き全般</li>
-          <li>わかりやすい丁寧な説明</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="role-badge">🧾 税理士</div>
-        <div class="expert-name">池田 健司</div>
-        <div class="firm-name">池田健司税理士事務所</div>
-        <ul>
-          <li>相続税の申告・納付サポート</li>
-          <li>相続税の試算・節税対策</li>
-          <li>生前対策のアドバイス</li>
-          <li>税務面での負担軽減</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="role-badge">🏠 不動産専門家</div>
-        <div class="expert-name">松本 兼典</div>
-        <div class="firm-name">株式会社マルエステート</div>
-        <ul>
-          <li>空き家の管理・活用の提案</li>
-          <li>不動産の売却サポート</li>
-          <li>不動産の有効活用アドバイス</li>
-          <li>相続不動産の総合サポート</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- 流れ -->
-<section class="flow">
-  <div class="container">
-    <div class="section-title">
-      <h2>ご相談から<span>解決までの流れ</span></h2>
-      <p class="subtitle">はじめてのご相談でも、安心してお任せください</p>
-    </div>
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="step-number">1</div>
-        <div class="step-body">
-          <h3>まずはお電話・お問い合わせ</h3>
-          <p>「何から話せばよいかわからない」という方もご安心ください。状況をお聞きしながら、丁寧にヒアリングします。</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="step-number">2</div>
-        <div class="step-body">
-          <h3>必要な専門家をアサイン</h3>
-          <p>お悩みの内容に合わせ、対応が必要な専門家をご案内します。複数の分野にまたがる場合もチームで対応します。</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="step-number">3</div>
-        <div class="step-body">
-          <h3>専門家チームで連携しながら対応</h3>
-          <p>各専門家が情報を共有しながら進行します。ご相談者様は窓口ひとつで状況確認が可能です。</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="step-number">4</div>
-        <div class="step-body">
-          <h3>解決・完了</h3>
-          <p>すべての手続きが完了したあとも、疑問や不安があればいつでもご連絡ください。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 選ばれる理由 -->
-<section class="reasons">
-  <div class="container">
-    <div class="section-title">
-      <h2>選ばれる<span>3つの理由</span></h2>
-    </div>
-    <div class="reasons-grid">
-      <div class="reason-card">
-        <div class="reason-num">REASON 01</div>
-        <div class="icon">🏢</div>
-        <h3>ワンストップで完結</h3>
-        <p>弁護士・司法書士・税理士・不動産専門家、全員に個別相談する必要がありません。1か所でまとめて対応します。</p>
-      </div>
-      <div class="reason-card">
-        <div class="reason-num">REASON 02</div>
-        <div class="icon">🤜</div>
-        <h3>チームで密接に連携</h3>
-        <p>専門家同士が情報を共有しながら進めるため、分野をまたぐ複雑な問題でも抜け漏れがありません。</p>
-      </div>
-      <div class="reason-card">
-        <div class="reason-num">REASON 03</div>
-        <div class="icon">📍</div>
-        <h3>地域に根ざした対応</h3>
-        <p>福岡市中央区に拠点を持ち、地域に精通した専門家が対面で丁寧にサポートします。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <div class="section-title">
-      <h2>よくある<span>ご質問</span></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="q-label">Q</div>
-          <div class="q-text">費用はどのくらいかかりますか？</div>
-        </div>
-        <div class="faq-a">
-          初回のご相談は無料です。具体的なサポート内容と費用については、ヒアリングの後にご説明いたします。事前に費用の目安をお伝えしますので、安心してご相談ください。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="q-label">Q</div>
-          <div class="q-text">相続税がかかるかどうかわからなくても相談できますか？</div>
-        </div>
-        <div class="faq-a">
-          もちろんです。「相続税がかかるのかどうか」を確認することも、私たちの重要なサポートのひとつです。まずはお気軽にご相談ください。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="q-label">Q</div>
-          <div class="q-text">相続が発生してからかなり時間が経っていますが、今からでも相談できますか？</div>
-        </div>
-        <div class="faq-a">
-          はい、対応可能です。ただし、相続税申告には期限（相続発生を知った日から10か月以内）がある場合があります。できるだけ早めにご相談いただくことをおすすめします。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="q-label">Q</div>
-          <div class="q-text">実家の不動産の処分もお願いできますか？</div>
-        </div>
-        <div class="faq-a">
-          はい、不動産専門家が相続登記の完了後から売却・活用まで、一貫してサポートします。空き家の管理や有効活用の提案も承ります。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="q-label">Q</div>
-          <div class="q-text">何から話せばいいかわかりません</div>
-        </div>
-        <div class="faq-a">
-          「家族が亡くなりました」というひとことで大丈夫です。現状をお聞きしながら、必要な手続きを一緒に整理していきます。何も準備しなくて構いません。
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 最終CTA -->
-<section class="cta-section">
-  <h2>まずは、<em>お気軽にご相談ください。</em></h2>
-  <p>初回相談無料 ｜ 弁護士・司法書士・税理士・不動産専門家がチームで対応</p>
-  <div class="cta-box">
-    <div class="cta-tel">
-      <div class="label">お電話でのご相談</div>
-      <div class="number">080-8162-9797</div>
-      <div class="hours">受付時間：9:00〜18:00（平日）</div>
-    </div>
-    <hr class="cta-divider">
-    <div class="cta-mail">
-      メールでのお問い合わせ：<br>
-      <strong>matsumoto@marue-state.com</strong>
-    </div>
-    <a href="mailto:matsumoto@marue-state.com" class="btn-mail">メールで問い合わせる</a>
-  </div>
-</section>
-
-<!-- フッター -->
 <footer>
-  <p class="address">〒810-0041 福岡県福岡市中央区大名1-1-1</p>
-  <p>&copy; 相続支援窓口</p>
+  &copy; 相続支援窓口
 </footer>
 
 </body>
